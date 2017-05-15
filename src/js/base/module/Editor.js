@@ -505,7 +505,9 @@ define([
      * insert horizontal rule
      */
     this.insertHorizontalRule = this.wrapCommand(function () {
-      var hrNode = this.createRange().insertNode(dom.create('HR'));
+      var hrObj = dom.create('HR');
+      hrObj.className = "summernote-editable-hr";
+      var hrNode = this.createRange().insertNode(hrObj);
       if (hrNode.nextSibling) {
         range.create(hrNode.nextSibling, 0).normalize().select();
       }
